@@ -8,7 +8,7 @@ LICENSE = "CLOSED"
 SRC_URI = "git://git@github.com/KareemLMR/Wireless-Air-Gyroscopic-Mouse.git;protocol=ssh;branch=main"
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "9074b43e050335b1235f3b9de31406705c9f9a55"
+SRCREV = "8b883ac215b405ed18fda0aee605386673062c2c"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
