@@ -8,7 +8,7 @@ LICENSE = "CLOSED"
 SRC_URI = "git://git@github.com/KareemLMR/Wireless-Air-Gyroscopic-Mouse.git;protocol=ssh;branch=main"
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "8b883ac215b405ed18fda0aee605386673062c2c"
+SRCREV = "a09ecd53c31744e31c498438ccb227a5d7978a09"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -21,7 +21,7 @@ S = "${WORKDIR}/git/mouse"
 INITDIR="${sysconfdir}/init.d"
 FILES:${PN} += "\
                    ${bindir}/driver \
-                   #${INITDIR}/S99aesdsocket \
+                   ${INITDIR}/S99mouse \
                "
 
 INSANE_SKIP:${PN} += "ldflags"
@@ -53,9 +53,9 @@ do_install () {
         install -d ${D}${bindir}
 	install -m 0755 ${S}/driver ${D}${bindir}/
 
-        #install -d ${D}${INITDIR}
-        #install -m 0755 ${S}/aesdsocket-start-stop ${D}${INITDIR}/S99aesdsocket
+        install -d ${D}${INITDIR}
+        install -m 0755 ${S}/mouse ${D}${INITDIR}/S99mouse
 	
-	#install -d ${D}${sysconfdir}/rc5.d
-	#ln -sf ../init.d/S99aesdsocket ${D}${sysconfdir}/rc5.d/S99aesdsocket
+	install -d ${D}${sysconfdir}/rc5.d
+	ln -sf ../init.d/S99mouse ${D}${sysconfdir}/rc5.d/S99mouse
 }
